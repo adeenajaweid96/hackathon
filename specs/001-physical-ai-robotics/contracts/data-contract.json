@@ -1,0 +1,544 @@
+# Data Contracts: Physical AI & Humanoid Robotics Book
+
+## Overview
+This document defines the data contracts and schemas used in the Physical AI & Humanoid Robotics Book project for both frontend and backend components.
+
+## User Data Contracts
+
+### User Profile Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique user identifier"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "User's email address"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "User's full name"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["student", "instructor"],
+      "description": "User's role in the system"
+    },
+    "background": {
+      "type": "object",
+      "properties": {
+        "programming_experience": {
+          "type": "string",
+          "enum": ["beginner", "intermediate", "advanced"],
+          "description": "Level of programming experience"
+        },
+        "hardware_access": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["Jetson Orin Nano", "Jetson NX", "RealSense D435i", "ReSpeaker", "Other"]
+          },
+          "description": "Hardware available to the user"
+        },
+        "robotics_background": {
+          "type": "string",
+          "enum": ["beginner", "intermediate", "advanced"],
+          "description": "Experience with robotics"
+        }
+      },
+      "required": ["programming_experience", "hardware_access", "robotics_background"]
+    },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "default": "en",
+          "description": "Preferred language code"
+        },
+        "personalization_enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether personalization is enabled"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Account creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    }
+  },
+  "required": ["id", "email", "name", "role", "background", "created_at", "updated_at"]
+}
+```
+
+## Book Content Data Contracts
+
+### Chapter Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique chapter identifier"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Chapter title"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "URL-friendly identifier"
+    },
+    "content": {
+      "type": "string",
+      "description": "Chapter content in markdown format"
+    },
+    "learning_objectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of learning objectives for the chapter"
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string"},
+          "content": {"type": "string"}
+        }
+      },
+      "description": "List of exercises for the chapter"
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Chapter position in the book sequence"
+    },
+    "module": {
+      "type": "string",
+      "description": "Module this chapter belongs to"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["id", "title", "slug", "content", "order", "module", "created_at", "updated_at"]
+}
+```
+
+### Book Content Chunk Schema (for RAG)
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique content chunk identifier"
+    },
+    "chapter_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Reference to the parent chapter"
+    },
+    "content": {
+      "type": "string",
+      "description": "Content chunk for vector search"
+    },
+    "chunk_index": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Position of this chunk within the chapter"
+    },
+    "embedding": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Vector embedding of the content"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "section": {"type": "string"},
+        "page_reference": {"type": "string"},
+        "keywords": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["id", "chapter_id", "content", "chunk_index", "embedding", "created_at", "updated_at"]
+}
+```
+
+## Chat System Data Contracts
+
+### Chat Session Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique session identifier"
+    },
+    "user_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Reference to the user"
+    },
+    "title": {
+      "type": "string",
+      "description": "Session title (auto-generated from first query)"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["id", "user_id", "title", "created_at", "updated_at"]
+}
+```
+
+### Chat Message Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique message identifier"
+    },
+    "session_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Reference to the chat session"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["user", "assistant"],
+      "description": "Message role"
+    },
+    "content": {
+      "type": "string",
+      "description": "Message content"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the message was created"
+    },
+    "context_chunks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "description": "IDs of content chunks used for response"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["book_content", "general_knowledge"],
+      "description": "Source of the information"
+    }
+  },
+  "required": ["id", "session_id", "role", "content", "timestamp"]
+}
+```
+
+## User Progress Data Contracts
+
+### User Progress Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique progress record identifier"
+    },
+    "user_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Reference to the user"
+    },
+    "chapter_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Reference to the chapter"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the chapter is completed"
+    },
+    "progress_percentage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Progress in the chapter (0-100)"
+    },
+    "time_spent": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Time spent on the chapter (in seconds)"
+    },
+    "last_accessed": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the chapter was last accessed"
+    },
+    "notes": {
+      "type": "string",
+      "description": "User's notes on the chapter"
+    },
+    "quiz_scores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "quiz_id": {"type": "string"},
+          "score": {"type": "number", "minimum": 0, "maximum": 100},
+          "completed_at": {"type": "string", "format": "date-time"}
+        }
+      },
+      "description": "Scores for chapter quizzes"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["id", "user_id", "chapter_id", "completed", "progress_percentage", "created_at", "updated_at"]
+}
+```
+
+## API Request/Response Schemas
+
+### Chat Query Request
+```json
+{
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "description": "User's query"
+    },
+    "session_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Chat session identifier"
+    },
+    "user_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "User identifier"
+    },
+    "include_sources": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to include source information"
+    }
+  },
+  "required": ["query", "session_id"]
+}
+```
+
+### Chat Query Response
+```json
+{
+  "type": "object",
+  "properties": {
+    "response": {
+      "type": "string",
+      "description": "Generated response to the query"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "chapter": {"type": "string"},
+          "section": {"type": "string"},
+          "relevance_score": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      },
+      "description": "Sources used to generate the response"
+    },
+    "session_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Chat session identifier"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the response"
+    }
+  },
+  "required": ["response", "session_id", "timestamp"]
+}
+```
+
+### Search Request
+```json
+{
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "description": "Search query"
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 10,
+      "description": "Maximum number of results to return"
+    },
+    "filters": {
+      "type": "object",
+      "properties": {
+        "module": {"type": "string"},
+        "chapter": {"type": "string"},
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "description": "Filters to apply to the search"
+    }
+  },
+  "required": ["query"]
+}
+```
+
+### Search Response
+```json
+{
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "chapter": {"type": "string"},
+          "section": {"type": "string"},
+          "content": {"type": "string"},
+          "relevance_score": {"type": "number", "minimum": 0, "maximum": 1},
+          "page_reference": {"type": "string"}
+        }
+      }
+    },
+    "total_results": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "query_time_ms": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": ["results", "total_results", "query_time_ms"]
+}
+```
+
+## Validation Rules
+
+### User Profile Validation
+- Email must be a valid email format
+- Name must be 1-100 characters
+- Role must be either "student" or "instructor"
+- Background programming_experience must be one of: "beginner", "intermediate", "advanced"
+- Background robotics_background must be one of: "beginner", "intermediate", "advanced"
+
+### Chapter Validation
+- Title must be 1-200 characters
+- Slug must follow URL-friendly format (lowercase, hyphens only)
+- Order must be a positive integer
+- Content must not be empty
+
+### Chat Message Validation
+- Content must be 1-1000 characters
+- Role must be either "user" or "assistant"
+- Session_id must reference an existing session
+- User_id must reference an existing user (for new messages)
+
+### Progress Validation
+- Progress_percentage must be between 0 and 100
+- Time_spent must be non-negative
+- User_id must reference an existing user
+- Chapter_id must reference an existing chapter
+
+## Data Transformation Rules
+
+### Content Chunking
+- Split book content into chunks of 500-1000 tokens
+- Preserve semantic boundaries (don't split mid-sentence)
+- Include overlapping context (100 tokens) between chunks
+- Generate unique embeddings for each chunk
+
+### Personalization Transformation
+- Adjust content complexity based on user's programming_experience
+- Include relevant hardware examples based on user's hardware_access
+- Provide appropriate examples based on robotics_background
+- Maintain core educational content while adjusting presentation
+
+### Search Result Ranking
+- Rank by semantic similarity score (0-1)
+- Boost results from current chapter/module
+- Include metadata (section, page_reference) for context
+- Limit to top 10 results by default

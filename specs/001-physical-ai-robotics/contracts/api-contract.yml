@@ -1,0 +1,378 @@
+# API Contract: Physical AI & Humanoid Robotics Book Backend
+
+## Overview
+This document defines the API contracts for the FastAPI backend of the Physical AI & Humanoid Robotics Book project. The backend provides RAG (Retrieval-Augmented Generation) functionality for the book content, user management, and personalization features.
+
+## Base URL
+```
+https://api.physical-ai-book.com  # Production
+http://localhost:8000            # Development
+```
+
+## Authentication
+Most endpoints require authentication using Bearer tokens. Include the token in the Authorization header:
+```
+Authorization: Bearer {token}
+```
+
+## Common Response Format
+
+### Success Response
+```json
+{
+  "success": true,
+  "data": { ... },
+  "message": "Optional message"
+}
+```
+
+### Error Response
+```json
+{
+  "success": false,
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Error description",
+    "details": { ... }
+  }
+}
+```
+
+## Endpoints
+
+### Health Check
+**GET** `/health`
+
+Check if the backend service is running.
+
+#### Response
+```json
+{
+  "status": "healthy",
+  "timestamp": "2025-12-10T10:00:00Z",
+  "version": "1.0.0"
+}
+```
+
+### RAG Chatbot Endpoints
+
+#### Query Book Content
+**POST** `/chat/query`
+
+Query the RAG system to get answers based on book content.
+
+##### Request
+```json
+{
+  "query": "What are the key components of ROS 2 architecture?",
+  "session_id": "session-123",
+  "user_id": "user-456",
+  "include_sources": true
+}
+```
+
+##### Response
+```json
+{
+  "response": "The key components of ROS 2 architecture include...",
+  "sources": [
+    {
+      "chapter": "ROS 2 Architecture",
+      "section": "Core Components",
+      "relevance_score": 0.85
+    }
+  ],
+  "session_id": "session-123",
+  "timestamp": "2025-12-10T10:00:00Z"
+}
+```
+
+#### Query Selected Text
+**POST** `/chat/selected-text-query`
+
+Query the RAG system with a specific text selection from the book.
+
+##### Request
+```json
+{
+  "selected_text": "The Robot Operating System (ROS) is a flexible framework for writing robot software...",
+  "query": "Can you explain this concept in simpler terms?",
+  "session_id": "session-123",
+  "user_id": "user-456"
+}
+```
+
+##### Response
+```json
+{
+  "response": "In simpler terms, ROS provides a framework...",
+  "session_id": "session-123",
+  "timestamp": "2025-12-10T10:00:00Z"
+}
+```
+
+#### Get Chat History
+**GET** `/chat/history/{session_id}`
+
+Retrieve chat history for a specific session.
+
+##### Response
+```json
+{
+  "session_id": "session-123",
+  "title": "ROS 2 Architecture Discussion",
+  "messages": [
+    {
+      "id": "msg-1",
+      "role": "user",
+      "content": "What are the key components of ROS 2 architecture?",
+      "timestamp": "2025-12-10T09:55:00Z"
+    },
+    {
+      "id": "msg-2",
+      "role": "assistant",
+      "content": "The key components of ROS 2 architecture include...",
+      "timestamp": "2025-12-10T09:55:05Z",
+      "sources": [
+        {
+          "chapter": "ROS 2 Architecture",
+          "section": "Core Components",
+          "relevance_score": 0.85
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### Create New Chat Session
+**POST** `/chat/session`
+
+Create a new chat session.
+
+##### Request
+```json
+{
+  "user_id": "user-456",
+  "initial_query": "What is Physical AI?"
+}
+```
+
+##### Response
+```json
+{
+  "session_id": "new-session-789",
+  "title": "What is Physical AI?",
+  "created_at": "2025-12-10T10:00:00Z"
+}
+```
+
+### Book Content Endpoints
+
+#### Get Book Content by Chapter
+**GET** `/content/chapter/{chapter_slug}`
+
+Retrieve processed book content for a specific chapter.
+
+##### Response
+```json
+{
+  "chapter_slug": "ros-2-architecture",
+  "title": "ROS 2 Architecture",
+  "content_chunks": [
+    {
+      "chunk_id": "chunk-1",
+      "content": "The Robot Operating System (ROS) is a flexible framework...",
+      "section": "Introduction",
+      "page_reference": "p. 45"
+    }
+  ],
+  "updated_at": "2025-12-10T10:00:00Z"
+}
+```
+
+#### Search Book Content
+**POST** `/content/search`
+
+Search across all book content.
+
+##### Request
+```json
+{
+  "query": "navigation in humanoid robots",
+  "limit": 10,
+  "filters": {
+    "module": "Humanoid Development"
+  }
+}
+```
+
+##### Response
+```json
+{
+  "results": [
+    {
+      "chapter": "Navigation & Path Planning for Humanoids",
+      "section": "Bipedal Navigation Challenges",
+      "content": "Navigating humanoid robots presents unique challenges...",
+      "relevance_score": 0.92,
+      "page_reference": "p. 156"
+    }
+  ],
+  "total_results": 1,
+  "query_time_ms": 45
+}
+```
+
+### User Management Endpoints
+
+#### Get User Profile
+**GET** `/user/profile/{user_id}`
+
+Retrieve user profile information.
+
+##### Response
+```json
+{
+  "user_id": "user-456",
+  "email": "student@example.com",
+  "name": "John Doe",
+  "role": "student",
+  "background": {
+    "programming_experience": "intermediate",
+    "hardware_access": ["Jetson Orin Nano"],
+    "robotics_background": "beginner"
+  },
+  "preferences": {
+    "language": "en",
+    "personalization_enabled": true
+  },
+  "created_at": "2025-12-01T10:00:00Z",
+  "updated_at": "2025-12-10T10:00:00Z"
+}
+```
+
+#### Update User Profile
+**PUT** `/user/profile/{user_id}`
+
+Update user profile information.
+
+##### Request
+```json
+{
+  "background": {
+    "programming_experience": "intermediate",
+    "hardware_access": ["Jetson Orin Nano", "RealSense D435i"],
+    "robotics_background": "beginner"
+  },
+  "preferences": {
+    "language": "en",
+    "personalization_enabled": true
+  }
+}
+```
+
+##### Response
+```json
+{
+  "user_id": "user-456",
+  "updated_at": "2025-12-10T10:00:00Z"
+}
+```
+
+### Personalization Endpoints
+
+#### Get Personalized Content
+**POST** `/personalization/content`
+
+Get personalized book content based on user profile.
+
+##### Request
+```json
+{
+  "user_id": "user-456",
+  "chapter_slug": "ros-2-fundamentals",
+  "context": {
+    "current_topic": "ROS 2 Nodes"
+  }
+}
+```
+
+##### Response
+```json
+{
+  "chapter_slug": "ros-2-fundamentals",
+  "content": {
+    "original_content": "A ROS 2 node is...",
+    "personalized_content": "Since you have intermediate programming experience, a ROS 2 node is essentially a process that performs computation. In ROS 2, nodes are implemented using client libraries such as rclpy (Python) or rclcpp (C++).",
+    "difficulty_level": "intermediate",
+    "examples": [
+      {
+        "type": "code",
+        "content": "# Python example for creating a node\nimport rclpy\nfrom rclpy.node import Node"
+      }
+    ]
+  }
+}
+```
+
+#### Translate Content
+**POST** `/translate`
+
+Translate book content to another language.
+
+##### Request
+```json
+{
+  "text": "The Robot Operating System (ROS) is a flexible framework...",
+  "target_language": "ur",
+  "source_language": "en",
+  "context": "book_content"
+}
+```
+
+##### Response
+```json
+{
+  "original_text": "The Robot Operating System (ROS) is a flexible framework...",
+  "translated_text": "روبوٹ آپریٹنگ سسٹم (ROS) ایک لچکدار فریم ورک ہے...",
+  "target_language": "ur",
+  "source_language": "en",
+  "translation_quality": 0.95
+}
+```
+
+## Error Codes
+
+| Code | HTTP Status | Description |
+|------|-------------|-------------|
+| INVALID_INPUT | 400 | Request data is invalid or missing required fields |
+| UNAUTHORIZED | 401 | Authentication token is missing or invalid |
+| FORBIDDEN | 403 | User doesn't have permission for this action |
+| NOT_FOUND | 404 | Requested resource doesn't exist |
+| RATE_LIMITED | 429 | Too many requests from this user/client |
+| INTERNAL_ERROR | 500 | Internal server error |
+| SERVICE_UNAVAILABLE | 503 | External service (e.g., OpenAI) unavailable |
+
+## Rate Limits
+
+- Chat endpoints: 100 requests per hour per user
+- Content endpoints: 1000 requests per hour per user
+- Translation endpoints: 50 requests per hour per user
+
+## Webhook Endpoints
+
+#### Ingestion Complete
+**POST** `/webhooks/ingestion-complete`
+
+Called when content ingestion is complete.
+
+##### Request
+```json
+{
+  "job_id": "ingestion-job-123",
+  "status": "completed",
+  "chunks_processed": 150,
+  "timestamp": "2025-12-10T10:00:00Z"
+}
+```
