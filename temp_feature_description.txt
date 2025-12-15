@@ -1,0 +1,173 @@
+Physical AI & Humanoid Robotics – Project Specification
+Project Overview
+
+Focus & Theme: AI Systems in the Physical World – Embodied Intelligence
+Goal: Bridge the gap between digital AI and physical robots. Students will design, simulate, and deploy humanoid robots capable of natural human interactions using ROS 2, Gazebo, NVIDIA Isaac, and LLMs.
+
+Quarter Objective:
+Introduce Physical AI — AI systems that function in reality and understand physical laws. Students learn to design humanoid robots, simulate real-world interactions, and integrate generative AI for conversational and task execution.
+
+Modules & Features
+Module 1: Robotic Nervous System (ROS 2)
+
+Focus: Middleware for robot control
+Features:
+
+ROS 2 architecture: Nodes, Topics, Services, Actions
+
+Python agent integration via rclpy
+
+Robot description with URDF (Unified Robot Description Format)
+
+ROS 2 package development & launch file management
+
+Module 2: Digital Twin (Gazebo & Unity)
+
+Focus: Physics simulation & environment building
+Features:
+
+Physics simulation: gravity, collisions, rigid body dynamics
+
+Sensor simulation: LiDAR, Depth Cameras, IMUs
+
+High-fidelity visualization & interaction in Unity
+
+URDF/SDF robot description formats
+
+Gazebo simulation implementation project
+
+Module 3: AI-Robot Brain (NVIDIA Isaac)
+
+Focus: Advanced perception & reinforcement learning
+Features:
+
+NVIDIA Isaac Sim: photorealistic simulation & synthetic data generation
+
+Isaac ROS: Hardware-accelerated Visual SLAM (VSLAM) and navigation
+
+Nav2 path planning for humanoid movement
+
+Reinforcement learning for robot control
+
+Sim-to-real model transfer
+
+Isaac-based perception pipeline project
+
+Module 4: Vision-Language-Action (VLA)
+
+Focus: Integration of LLMs & Robotics
+Features:
+
+Voice-to-Action: OpenAI Whisper integration
+
+Cognitive Planning: Convert natural language commands into ROS 2 actions
+
+Multi-modal interaction: speech, vision, gestures
+
+Capstone Project: Autonomous Humanoid executes tasks such as:
+
+Receives voice command (“Clean the room”)
+
+Plans navigation path
+
+Avoids obstacles
+
+Identifies objects using computer vision
+
+Manipulates objects to complete tasks
+
+Learning Outcomes
+
+Master Physical AI principles and embodied intelligence
+
+Develop ROS 2 robotic control pipelines
+
+Simulate robots in Gazebo and Unity
+
+Implement NVIDIA Isaac AI perception & manipulation
+
+Integrate GPT/LLMs for conversational robotics
+
+Design humanoid robots for natural interaction
+
+Weekly Schedule (13 Weeks)
+Week    Topics & Activities
+1-2    Foundations of Physical AI, sensors (LiDAR, cameras, IMU), humanoid landscape
+3-5    ROS 2 fundamentals, nodes, topics, services, Python packages
+6-7    Gazebo simulation setup, URDF/SDF, physics & sensor simulation, Unity visualization
+8-10    NVIDIA Isaac Sim & SDK, AI perception, reinforcement learning, sim-to-real transfer
+11-12    Humanoid kinematics & dynamics, bipedal locomotion, manipulation, natural interaction
+13    Conversational robotics: GPT integration, voice recognition, multi-modal control, capstone
+
+Assessments:
+
+ROS 2 package project
+
+Gazebo simulation project
+
+Isaac-based perception pipeline
+
+Capstone: Autonomous humanoid with conversational AI
+
+Hardware Requirements
+1. Digital Twin Workstation (Per Student)
+Component    Specification    Purpose
+GPU    NVIDIA RTX 4070 Ti (12GB VRAM) minimum; 3090/4090 preferred    Run Isaac Sim, VLA models
+CPU    Intel i7 (13th Gen+) or AMD Ryzen 9    Physics calculations
+RAM    64 GB DDR5 (32 GB minimum)    Smooth scene rendering
+OS    Ubuntu 22.04 LTS    Native ROS 2 support
+Note    Dual boot for Windows if needed    Isaac Sim Windows support
+2. Physical AI Edge Kit
+Component    Model    Purpose
+Brain    NVIDIA Jetson Orin Nano (8GB) / Orin NX (16GB)    Deploy ROS 2 inference pipelines
+Vision    Intel RealSense D435i/D455    RGB & Depth for VSLAM & perception
+Balance    USB IMU (BNO055)    Kinematics & stability calibration
+Voice    USB Mic/Speaker (ReSpeaker)    Voice command input
+
+Approx. Cost: ~$700 per kit
+
+3. Robot Lab Options
+Option    Robot    Pros    Cons    Cost
+A – Proxy    Unitree Go2 Edu    Durable, ROS 2 support, affordable    Quadruped    $1,800–3,000
+B – Miniature Humanoid    Hiwonder TonyPi Pro / Robotis OP3 / Unitree G1    Tabletop humanoid simulation    Limited AI deployment on small kits    $600–16,000
+C – Premium Lab    Unitree G1 Humanoid    Fully humanoid, open SDK, dynamic walking    High-cost    $16,000+
+4. Cloud-Native Lab Option
+
+Cloud Workstation: AWS g5.2xlarge / g6e.xlarge (RTX-class GPU, 24GB VRAM)
+
+Cost: ~$1.50/hour × 120 hours = $180 per quarter
+
+EBS Storage: $25 per quarter
+
+Local Edge Hardware: Jetson Kit ~$700
+
+Physical Robot: Unitree Go2 ~$3,000
+
+Note: Train in cloud → deploy locally to Jetson for low-latency control
+
+Project Scenario Example
+
+Scenario: “Autonomous Office Assistant”
+
+Voice Command: User says “Bring me the red cup.”
+
+Cognitive Planning: LLM converts command into ROS 2 task sequence.
+
+Navigation: Robot identifies the cup’s location, plans a path avoiding obstacles using Nav2.
+
+Perception: Uses RealSense & Isaac VSLAM to locate the red cup.
+
+Manipulation: Grasps the cup using bipedal humanoid hand control.
+
+Return: Navigates back to the user and delivers the cup.
+
+Outcome: Demonstrates integrated Physical AI: embodied intelligence, multi-modal sensing, AI planning, and robotic manipulation.
+
+Architecture Summary
+Component    Hardware    Function
+Sim Rig    PC with RTX 4080 + Ubuntu 22.04    Isaac Sim, Gazebo, Unity, VLA model training
+Edge Brain    Jetson Orin Nano    Deploy inference stack locally
+Sensors    RealSense Camera + LiDAR    Feed real-world data to AI
+Actuator    Unitree Go2 / G1    Execute motion commands from Jetson
+
+Important Consideration: Cloud-only simulation introduces latency. Solution: Train in cloud → deploy weights to local Jetson kit. these are the specification for this project

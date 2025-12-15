@@ -1,0 +1,107 @@
+# Dependencies
+node_modules/
+backend/venv/
+backend/venv*/
+backend/.venv/
+backend/.env
+backend/*.env
+
+# Production
+/build/
+backend/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+.venv/
+venv/
+venv.bak/
+ENV/
+env.bak/
+
+# Docusaurus
+.docusaurus/
+.cache-loader/
+.dist/
+
+# Documentation
+.book/
+.nyc_output/
+coverage/
+.coverage
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vs/
+.settings/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Backend specific
+backend/logs/
+backend/*.log
+backend/data/
+backend/.pytest_cache/
+backend/.coverage
+
+# Local configuration
+*.local
+config/
+
+# IDE and editor files
+*.tmp
+*.bak
+*.swp
+*~
+.project
+.idea/
+.vscode/
+.settings/
+*.sublime-project
+*.sublime-workspace

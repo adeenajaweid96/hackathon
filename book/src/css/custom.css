@@ -1,0 +1,546 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Physical AI and Humanoid Robotics Book - Dark Aesthetic Theme */
+/* You can override the default Infima variables here. */
+:root {
+  /* Primary colors for Physical AI theme */
+  --ifm-color-primary: #4cc9f0;          /* Light blue for tech/humanoid theme */
+  --ifm-color-primary-dark: #3a9cb7;     /* Darker blue */
+  --ifm-color-primary-darker: #31859d;   /* Even darker blue */
+  --ifm-color-primary-darkest: #286c80;  /* Darkest blue */
+  --ifm-color-primary-light: #6ad2f3;    /* Lighter blue */
+  --ifm-color-primary-lighter: #7bd9f5;  /* Even lighter blue */
+  --ifm-color-primary-lightest: #a0e7fa; /* Lightest blue */
+
+  /* Secondary colors */
+  --ifm-color-secondary: #7209b7;        /* Purple for accents */
+  --ifm-color-secondary-dark: #5a0791;
+  --ifm-color-secondary-darker: #4a0677;
+  --ifm-color-secondary-darkest: #3b055e;
+  --ifm-color-secondary-light: #8a2be2;
+  --ifm-color-secondary-lighter: #9d4edd;
+  --ifm-color-secondary-lightest: #b66cfa;
+
+  /* Background and text colors for dark theme */
+  --ifm-background-color: #0f172a;       /* Dark blue-gray background */
+  --ifm-background-surface-color: #1e293b; /* Slightly lighter surface */
+  --ifm-background-surface-color-dark: #1e293b;
+  --ifm-text-color: #e2e8f0;             /* Light gray text */
+  --ifm-text-color-secondary: #94a3b8;   /* Muted text */
+  --ifm-border-color: #334155;           /* Darker border */
+
+  /* Code block colors */
+  --ifm-code-background: #1e293b;
+  --ifm-code-color: #f8f8f2;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+
+  /* Card and UI element colors */
+  --ifm-card-background-color: #1e293b;
+  --ifm-card-border-color: #334155;
+
+  --ifm-code-font-size: 95%;
+}
+
+/* Light mode theme */
+[data-theme='light'] {
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+
+  /* Secondary colors */
+  --ifm-color-secondary: #64748b;
+  --ifm-color-secondary-dark: #475569;
+  --ifm-color-secondary-darker: #334155;
+  --ifm-color-secondary-darkest: #1e293b;
+  --ifm-color-secondary-light: #94a3b8;
+  --ifm-color-secondary-lighter: #cbd5e1;
+  --ifm-color-secondary-lightest: #e2e8f0;
+
+  /* Background and text colors for light theme */
+  --ifm-background-color: #ffffff;       /* White background */
+  --ifm-background-surface-color: #f8fafc; /* Light gray surface */
+  --ifm-background-surface-color-dark: #f1f5f9;
+  --ifm-text-color: #0f172a;             /* Dark gray text */
+  --ifm-text-color-secondary: #64748b;   /* Muted text */
+  --ifm-border-color: #e2e8f0;           /* Light border */
+
+  /* Code block colors */
+  --ifm-code-background: #f1f5f9;
+  --ifm-code-color: #1e293b;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Card and UI element colors */
+  --ifm-card-background-color: #ffffff;
+  --ifm-card-border-color: #e2e8f0;
+}
+
+/* Dark mode theme (which will be the primary theme for this book) */
+[data-theme='dark'] {
+  --ifm-color-primary: #4cc9f0;          /* Light blue for tech/humanoid theme */
+  --ifm-color-primary-dark: #3a9cb7;     /* Darker blue */
+  --ifm-color-primary-darker: #31859d;   /* Even darker blue */
+  --ifm-color-primary-darkest: #286c80;  /* Darkest blue */
+  --ifm-color-primary-light: #6ad2f3;    /* Lighter blue */
+  --ifm-color-primary-lighter: #7bd9f5;  /* Even lighter blue */
+  --ifm-color-primary-lightest: #a0e7fa; /* Lightest blue */
+
+  /* Secondary colors */
+  --ifm-color-secondary: #7209b7;        /* Purple for accents */
+  --ifm-color-secondary-dark: #5a0791;
+  --ifm-color-secondary-darker: #4a0677;
+  --ifm-color-secondary-darkest: #3b055e;
+  --ifm-color-secondary-light: #8a2be2;
+  --ifm-color-secondary-lighter: #9d4edd;
+  --ifm-color-secondary-lightest: #b66cfa;
+
+  /* Background and text colors for dark theme */
+  --ifm-background-color: #0f172a;       /* Dark blue-gray background */
+  --ifm-background-surface-color: #1e293b; /* Slightly lighter surface */
+  --ifm-background-surface-color-dark: #1e293b;
+  --ifm-text-color: #e2e8f0;             /* Light gray text */
+  --ifm-text-color-secondary: #94a3b8;   /* Muted text */
+  --ifm-border-color: #334155;           /* Darker border */
+
+  /* Code block colors */
+  --ifm-code-background: #1e293b;
+  --ifm-code-color: #f8f8f2;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+
+  /* Card and UI element colors */
+  --ifm-card-background-color: #1e293b;
+  --ifm-card-border-color: #334155;
+}
+
+/* Custom styles for attractive UI elements */
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.button {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(76, 201, 240, 0.2);
+}
+
+/* Card styles for module display */
+.card {
+  border: 1px solid var(--ifm-card-border-color);
+  border-radius: 12px;
+  background-color: var(--ifm-card-background-color);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(76, 201, 240, 0.2), 0 10px 10px -5px rgba(76, 201, 240, 0.1);
+  border-color: var(--ifm-color-primary-light);
+}
+
+/* Animation for card interactions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Chatbot widget styles */
+.chatbot-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chatbot-toggle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(76, 201, 240, 0.4);
+  transition: all 0.3s ease;
+}
+
+.chatbot-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(76, 201, 240, 0.6);
+}
+
+.chatbot-container {
+  width: 350px;
+  height: 500px;
+  background: var(--ifm-background-surface-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--ifm-border-color);
+}
+
+.chatbot-header {
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-secondary));
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 18px;
+  margin-bottom: 10px;
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-text-color);
+  border-bottom-left-radius: 5px;
+}
+
+.chatbot-input-form {
+  display: flex;
+  padding: 15px;
+  background-color: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-border-color);
+}
+
+.chatbot-input-form input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 24px;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-text-color);
+}
+
+.chatbot-input-form button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 24px;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  cursor: pointer;
+}
+
+/* Typing indicator animation */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+}
+
+.typing-indicator span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--ifm-text-color-secondary);
+  margin: 0 3px;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Personalize button styles */
+.personalize-btn {
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-secondary));
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.personalize-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(114, 9, 183, 0.3);
+}
+
+/* Translate button styles */
+.translate-btn {
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-text-color);
+  border: 1px solid var(--ifm-border-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.translate-btn:hover {
+  background: var(--ifm-background-color);
+  border-color: var(--ifm-color-primary);
+}
+
+/* Modal styles */
+.personalize-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.personalize-modal {
+  background: var(--ifm-background-surface-color);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--ifm-border-color);
+}
+
+.personalize-modal-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--ifm-border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.personalize-modal-close {
+  background: none;
+  border: none;
+  color: var(--ifm-text-color);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.personalize-modal-content {
+  padding: 20px;
+}
+
+.personalize-form-group {
+  margin-bottom: 20px;
+}
+
+.personalize-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--ifm-text-color);
+}
+
+.personalize-form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-text-color);
+  border: 1px solid var(--ifm-border-color);
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Table of contents styling */
+.table-of-contents {
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+/* Code block styling */
+.code-block {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Footer styling */
+.footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-top: 1px solid var(--ifm-border-color);
+}
+
+/* Navbar styling */
+.navbar {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ifm-border-color);
+}
+
+/* Responsive design for all screen sizes */
+@media (max-width: 996px) {
+  .col--3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .module-card-link {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .col--3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .module-card-link {
+    min-height: auto;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .button.button--lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .col {
+    padding: 0.5rem;
+  }
+
+  .card__header, .card__body, .card__footer {
+    padding: 1rem;
+  }
+
+  .module-card-icon {
+    font-size: 2rem !important;
+  }
+
+  .module-card-title {
+    font-size: 1.1rem;
+  }
+
+  .module-card-description {
+    font-size: 0.9rem;
+  }
+
+  .module-card-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* Module card specific responsive styles */
+.module-card-link {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.module-card-link .card__footer {
+  margin-top: auto;
+}
+
+/* Animation for fade-in on load */
+.fade-in-section {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
