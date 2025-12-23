@@ -109,6 +109,28 @@ const sidebars: SidebarsConfig = {
             'capstone-humanoid-project/full-pipeline',
           ],
         },
+        {
+          type: 'category',
+          label: 'Part VIII: Hardware & Development Infrastructure',
+          collapsed: false,
+          items: [
+            'hardware-requirements/index',
+            'hardware-requirements/hardware-architecture',
+            'tools-lab-setup/index',
+            'tools-lab-setup/lab-setup-options',
+            'unity-integration/index',
+            'unity-integration/unity-robotics-integration',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Part IX: Reference Materials',
+          collapsed: false,
+          items: [
+            'glossary/index',
+            'assessments/index',
+          ],
+        },
       ],
     },
   ],

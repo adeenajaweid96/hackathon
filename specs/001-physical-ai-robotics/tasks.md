@@ -155,15 +155,15 @@ Build the book in phases, starting with core structure and dark-themed UI with c
 
 **Tasks**:
 
-- [ ] T066 [P] Create Introduction to Physical AI content in book/docs/intro-to-physical-ai/
-- [ ] T067 [P] Create NVIDIA Isaac content in book/docs/nvidia-isaac/
-- [ ] T068 [P] Create Humanoid Development content in book/docs/humanoid-development/
-- [ ] T069 [P] Create Hardware Requirements content in book/docs/hardware-requirements/
-- [ ] T070 [P] Create Tools & Lab Setup content in book/docs/tools-lab-setup/
-- [ ] T071 [P] Create Unity Integration content in book/docs/unity-integration/
-- [ ] T072 [P] Add glossary of AI and robotics terms
-- [ ] T073 [P] Create index for the book
-- [ ] T074 [P] Add assessments and quizzes for each module
+- [X] T066 [P] Create Introduction to Physical AI content in book/docs/intro-to-physical-ai/
+- [X] T067 [P] Create NVIDIA Isaac content in book/docs/nvidia-isaac/
+- [X] T068 [P] Create Humanoid Development content in book/docs/humanoid-development/
+- [X] T069 [P] Create Hardware Requirements content in book/docs/hardware-requirements/
+- [X] T070 [P] Create Tools & Lab Setup content in book/docs/tools-lab-setup/
+- [X] T071 [P] Create Unity Integration content in book/docs/unity-integration/
+- [X] T072 [P] Add glossary of AI and robotics terms
+- [X] T073 [P] Create index for the book
+- [X] T074 [P] Add assessments and quizzes for each module
 
 ## Phase 10: Polish & Cross-Cutting Concerns
 
@@ -171,17 +171,17 @@ Build the book in phases, starting with core structure and dark-themed UI with c
 
 **Tasks**:
 
-- [ ] T075 Implement advanced animations for card interactions
-- [ ] T076 Optimize dark theme color scheme for better readability
-- [ ] T077 Add search functionality enhancements
-- [ ] T078 Improve navigation and user experience
-- [ ] T079 Add accessibility features for the book
-- [ ] T080 Implement performance optimizations
-- [ ] T081 Create deployment configuration for GitHub Pages
-- [ ] T082 Write comprehensive documentation for deployment
-- [ ] T083 Test all book functionality end-to-end
-- [ ] T084 Conduct final review of all content for accuracy
-- [ ] T085 Create README with instructions for using the book
+- [X] T075 Implement advanced animations for card interactions
+- [X] T076 Optimize dark theme color scheme for better readability
+- [X] T077 Add search functionality enhancements
+- [X] T078 Improve navigation and user experience
+- [X] T079 Add accessibility features for the book
+- [X] T080 Implement performance optimizations
+- [X] T081 Create deployment configuration for GitHub Pages
+- [X] T082 Write comprehensive documentation for deployment
+- [X] T083 Test all book functionality end-to-end
+- [X] T084 Conduct final review of all content for accuracy
+- [X] T085 Create README with instructions for using the book
 
 ## MVP Scope (User Story 1 Focus)
 
