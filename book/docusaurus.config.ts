@@ -25,7 +25,7 @@ const config: Config = {
   organizationName: 'adeenajaweid96', // Usually your GitHub org/user name.
   projectName: 'hackathon', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -76,10 +76,6 @@ const config: Config = {
     },
     navbar: {
       title: 'Physical AI & Humanoid Robotics',
-      logo: {
-        alt: 'Physical AI & Humanoid Robotics Logo',
-        src: 'img/logo.svg',
-      },
       items: [
         {
           type: 'docSidebar',
@@ -88,6 +84,10 @@ const config: Config = {
           label: 'Tutorial',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          type: 'search',
+          position: 'right',
+        },
         {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
@@ -143,6 +143,15 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    algolia: {
+      // The application ID provided by Algolia
+      appId: 'YOUR_ALGOLIA_APP_ID',
+      // Public API key: it is safe to commit it
+      apiKey: 'YOUR_ALGOLIA_API_KEY',
+      indexName: 'physical-ai-humanoid-robotics',
+      contextualSearch: true,
+      searchPagePath: 'search',
     },
   } satisfies Preset.ThemeConfig,
 };

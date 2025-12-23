@@ -7,7 +7,7 @@
 /* Physical AI and Humanoid Robotics Book - Dark Aesthetic Theme */
 /* You can override the default Infima variables here. */
 :root {
-  /* Primary colors for Physical AI theme */
+  /* Primary colors for Physical AI theme - optimized for readability */
   --ifm-color-primary: #4cc9f0;          /* Light blue for tech/humanoid theme */
   --ifm-color-primary-dark: #3a9cb7;     /* Darker blue */
   --ifm-color-primary-darker: #31859d;   /* Even darker blue */
@@ -16,33 +16,40 @@
   --ifm-color-primary-lighter: #7bd9f5;  /* Even lighter blue */
   --ifm-color-primary-lightest: #a0e7fa; /* Lightest blue */
 
-  /* Secondary colors */
-  --ifm-color-secondary: #7209b7;        /* Purple for accents */
-  --ifm-color-secondary-dark: #5a0791;
-  --ifm-color-secondary-darker: #4a0677;
-  --ifm-color-secondary-darkest: #3b055e;
-  --ifm-color-secondary-light: #8a2be2;
-  --ifm-color-secondary-lighter: #9d4edd;
-  --ifm-color-secondary-lightest: #b66cfa;
+  /* Secondary colors - optimized for accessibility */
+  --ifm-color-secondary: #9d4edd;        /* Lighter purple for better contrast */
+  --ifm-color-secondary-dark: #7209b7;
+  --ifm-color-secondary-darker: #5a0791;
+  --ifm-color-secondary-darkest: #4a0677;
+  --ifm-color-secondary-light: #b66cfa;
+  --ifm-color-secondary-lighter: #c77dff;
+  --ifm-color-secondary-lightest: #d8b4fe;
 
-  /* Background and text colors for dark theme */
-  --ifm-background-color: #0f172a;       /* Dark blue-gray background */
-  --ifm-background-surface-color: #1e293b; /* Slightly lighter surface */
-  --ifm-background-surface-color-dark: #1e293b;
-  --ifm-text-color: #e2e8f0;             /* Light gray text */
-  --ifm-text-color-secondary: #94a3b8;   /* Muted text */
-  --ifm-border-color: #334155;           /* Darker border */
+  /* Background and text colors for dark theme - optimized for readability */
+  --ifm-background-color: #0a0f1a;       /* Deeper blue-gray background for better contrast */
+  --ifm-background-surface-color: #1a2436; /* Slightly lighter surface */
+  --ifm-background-surface-color-dark: #1a2436;
+  --ifm-text-color: #f0f9ff;             /* Brighter text for better readability */
+  --ifm-text-color-secondary: #cbd5e1;   /* Lighter muted text */
+  --ifm-text-color-inverse: #0f172a;     /* Dark text for light backgrounds */
+  --ifm-border-color: #2d3748;           /* Darker border with better contrast */
 
-  /* Code block colors */
-  --ifm-code-background: #1e293b;
+  /* Code block colors - optimized for readability */
+  --ifm-code-background: #1a2436;
   --ifm-code-color: #f8f8f2;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(76, 201, 240, 0.15);
 
   /* Card and UI element colors */
-  --ifm-card-background-color: #1e293b;
-  --ifm-card-border-color: #334155;
+  --ifm-card-background-color: #1a2436;
+  --ifm-card-border-color: #2d3748;
 
   --ifm-code-font-size: 95%;
+
+  /* Additional accessibility colors */
+  --ifm-color-success: #10b981;          /* Improved success color */
+  --ifm-color-info: #3b82f6;             /* Improved info color */
+  --ifm-color-warning: #f59e0b;          /* Improved warning color */
+  --ifm-color-danger: #ef4444;           /* Improved danger color */
 }
 
 /* Light mode theme */
@@ -92,31 +99,38 @@
   --ifm-color-primary-lighter: #7bd9f5;  /* Even lighter blue */
   --ifm-color-primary-lightest: #a0e7fa; /* Lightest blue */
 
-  /* Secondary colors */
-  --ifm-color-secondary: #7209b7;        /* Purple for accents */
-  --ifm-color-secondary-dark: #5a0791;
-  --ifm-color-secondary-darker: #4a0677;
-  --ifm-color-secondary-darkest: #3b055e;
-  --ifm-color-secondary-light: #8a2be2;
-  --ifm-color-secondary-lighter: #9d4edd;
-  --ifm-color-secondary-lightest: #b66cfa;
+  /* Secondary colors - optimized for accessibility */
+  --ifm-color-secondary: #9d4edd;        /* Lighter purple for better contrast */
+  --ifm-color-secondary-dark: #7209b7;
+  --ifm-color-secondary-darker: #5a0791;
+  --ifm-color-secondary-darkest: #4a0677;
+  --ifm-color-secondary-light: #b66cfa;
+  --ifm-color-secondary-lighter: #c77dff;
+  --ifm-color-secondary-lightest: #d8b4fe;
 
-  /* Background and text colors for dark theme */
-  --ifm-background-color: #0f172a;       /* Dark blue-gray background */
-  --ifm-background-surface-color: #1e293b; /* Slightly lighter surface */
-  --ifm-background-surface-color-dark: #1e293b;
-  --ifm-text-color: #e2e8f0;             /* Light gray text */
-  --ifm-text-color-secondary: #94a3b8;   /* Muted text */
-  --ifm-border-color: #334155;           /* Darker border */
+  /* Background and text colors for dark theme - optimized for readability */
+  --ifm-background-color: #0a0f1a;       /* Deeper blue-gray background for better contrast */
+  --ifm-background-surface-color: #1a2436; /* Slightly lighter surface */
+  --ifm-background-surface-color-dark: #1a2436;
+  --ifm-text-color: #f0f9ff;             /* Brighter text for better readability */
+  --ifm-text-color-secondary: #cbd5e1;   /* Lighter muted text */
+  --ifm-text-color-inverse: #0f172a;     /* Dark text for light backgrounds */
+  --ifm-border-color: #2d3748;           /* Darker border with better contrast */
 
-  /* Code block colors */
-  --ifm-code-background: #1e293b;
+  /* Code block colors - optimized for readability */
+  --ifm-code-background: #1a2436;
   --ifm-code-color: #f8f8f2;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(76, 201, 240, 0.15);
 
   /* Card and UI element colors */
-  --ifm-card-background-color: #1e293b;
-  --ifm-card-border-color: #334155;
+  --ifm-card-background-color: #1a2436;
+  --ifm-card-border-color: #2d3748;
+
+  /* Additional accessibility colors */
+  --ifm-color-success: #10b981;          /* Improved success color */
+  --ifm-color-info: #3b82f6;             /* Improved info color */
+  --ifm-color-warning: #f59e0b;          /* Improved warning color */
+  --ifm-color-danger: #ef4444;           /* Improved danger color */
 }
 
 /* Custom styles for attractive UI elements */
@@ -440,6 +454,31 @@
   border-bottom: 1px solid var(--ifm-border-color);
 }
 
+/* Custom navbar title/logo styling */
+.navbar__title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+
+.navbar__link--active,
+.navbar__link:hover {
+  color: var(--ifm-color-primary-light) !important;
+}
+
+/* Adjust navbar padding for better alignment */
+.navbar__item, .navbar__link {
+  color: var(--ifm-text-color);
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-primary-light);
+}
+
 /* Responsive design for all screen sizes */
 @media (max-width: 996px) {
   .col--3 {
@@ -543,4 +582,275 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Accessibility improvements */
+/* Focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --ifm-background-color: #000000;
+    --ifm-background-surface-color: #1a1a1a;
+    --ifm-text-color: #ffffff;
+    --ifm-text-color-secondary: #e0e0e0;
+    --ifm-border-color: #ffffff;
+    --ifm-color-primary: #4cc9f0;
+    --ifm-color-secondary: #9d4edd;
+  }
+
+  .card {
+    border: 2px solid var(--ifm-border-color);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .module-card-link {
+    transition: none;
+  }
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Better focus management for modal components */
+.personalize-modal:focus,
+.chatbot-container:focus {
+  outline: none;
+}
+
+.personalize-modal *:focus,
+.chatbot-container *:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link for screen readers */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-to-content:focus {
+  top: 6px;
+}
+
+/* Better heading structure for screen readers */
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+}
+
+/* Semantic heading styles */
+.main-heading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-heading {
+  font-size: 1.75rem;
+  margin: 2rem 0 1rem 0;
+  line-height: 1.3;
+  border-bottom: 2px solid var(--ifm-color-primary);
+  padding-bottom: 0.5rem;
+}
+
+.subsection-heading {
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0.75rem 0;
+  line-height: 1.4;
+}
+
+/* Improved link styles for accessibility */
+a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 3px;
+}
+
+/* Better form accessibility */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--ifm-text-color);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--ifm-border-color);
+  border-radius: 6px;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-text-color);
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.2);
+}
+
+/* Table accessibility improvements */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid var(--ifm-border-color);
+}
+
+th {
+  background-color: rgba(76, 201, 240, 0.1);
+  font-weight: 600;
+}
+
+/* Better color contrast for all states */
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+}
+
+.button--primary:hover,
+.button--primary:focus {
+  background-color: var(--ifm-color-primary-light);
+  color: white;
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
+}
+
+.button--secondary:hover,
+.button--secondary:focus {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+/* Improved code block accessibility */
+.prism-code {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  tab-size: 4;
+}
+
+/* Better color contrast for code syntax highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--ifm-color-secondary-lighter);
+}
+
+.token.punctuation {
+  color: var(--ifm-text-color);
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f92672;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: #66d9ef;
+}
+
+.token.keyword {
+  color: #ae81ff;
+}
+
+.token.regex,
+.token.important {
+  color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
 }

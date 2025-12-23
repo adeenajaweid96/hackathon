@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
-const ChatbotWidget = () => {
+const ChatbotWidget = ({ apiUrl = 'http://localhost:8000/api/v1' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{id: number, text: string, sender: 'user' | 'bot'}[]>([]);
   const [inputValue, setInputValue] = useState('');
@@ -35,7 +35,7 @@ const ChatbotWidget = () => {
     try {
       // Simulate API call to backend
       // In a real implementation, this would call the backend API
-      const response = await fetch('/api/chat', {
+      const response = await fetch(`${apiUrl}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -63,11 +63,11 @@ const modules = [
   },
   {
     id: 8,
-    title: 'Hardware & Lab Setup',
-    description: 'Guidance on workstation requirements, Jetson kits, and lab configurations.',
-    icon: '🔧',
-    path: '/docs/hardware-requirements/hardware-architecture'
-  }
+    title: 'Hardware & Development Infrastructure',
+    description: 'Essential hardware requirements, lab setup options, and development infrastructure for humanoid robotics.',
+    icon: '🛠️',
+    path: '/docs/hardware-requirements/index'
+  },
 ];
 
 function HomepageHeader() {
@@ -133,7 +133,7 @@ export default function Home(): ReactNode {
         <ModuleGrid />
       </main>
       {/* Chatbot Widget - Available on all pages */}
-      <ChatbotWidget apiUrl={process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1'} />
+      <ChatbotWidget apiUrl="http://localhost:8000/api/v1" />
     </Layout>
   );
 }
